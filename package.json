@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-rabbitmq",
+  "version": "1.0.0",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "description": "",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelwp/nodejs-rabbitmq.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelwp/nodejs-rabbitmq/issues"
+  },
+  "homepage": "https://github.com/michaelwp/nodejs-rabbitmq#readme"
+}
