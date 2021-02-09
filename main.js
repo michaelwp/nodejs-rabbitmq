@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const rabbitMq = require('./rabbitMq');
+const router = require("./router");
 
-app.get('/send', rabbitMq.send);
+app.use(router);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

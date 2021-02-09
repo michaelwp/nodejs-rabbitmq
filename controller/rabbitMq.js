@@ -12,9 +12,13 @@ class RabbitMQ {
                 return;
             }
 
-            connection.createChannel(function (error1, channel) {
-                if (error1) throw error1;
-
+            connection.createChannel(function (err2, channel) {
+                if (err2) {
+                    res.status(500).json({
+                        message: err2.message
+                    });
+                    return;
+                }
                 const queue = 'hello';
                 const msg = 'Hello world';
 
@@ -30,6 +34,10 @@ class RabbitMQ {
                 connection.close();
                 process.exit(0);
             }, 500);
+
+            res.status(200).json({
+                message: "send !"
+            })
         });
     }
 }
