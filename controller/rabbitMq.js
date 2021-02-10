@@ -19,8 +19,8 @@ class RabbitMQ {
                     return;
                 }
 
-                const to = '6287778313111';
-                const text = '310583';
+                const to = '0123456';
+                const text = '123456';
 
                 const message = `{"from":"Kanggo","to":"${to}","text":"${text}"}`
 
