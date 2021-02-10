@@ -1,6 +1,5 @@
 const amqp = require('amqplib/callback_api');
-const url = 'amqps://rvwestek:WtBNOsIVUGDiHe_Y02FANnqkFenJRg0A@barnacle.rmq.cloudamqp.com/rvwestek'
-// const url = 'amqp://guest:guest@localhost:15672/'
+const url = process.env.RABBITMQ_URL
 
 class RabbitMQ {
     static send(req, res) {
@@ -19,8 +18,14 @@ class RabbitMQ {
                     });
                     return;
                 }
-                const queue = 'hello';
-                const msg = 'Hello world';
+
+                const to = '6287778313111';
+                const text = '310583';
+
+                const message = `{"from":"Kanggo","to":"${to}","text":"${text}"}`
+
+                const queue = 'otp';
+                const msg = message;
 
                 channel.assertQueue(queue, {
                     durable: false
@@ -32,7 +37,7 @@ class RabbitMQ {
 
             setTimeout(function () {
                 connection.close();
-                process.exit(0);
+                // process.exit(0);
             }, 500);
 
             res.status(200).json({
